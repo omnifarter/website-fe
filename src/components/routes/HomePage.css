@@ -1,0 +1,21 @@
+.homepage{
+    width:100%;
+    height:100%;
+    background-color:rgb(159, 201, 255);
+}
+h1{
+    margin:0;
+    padding-top:3rem;
+}
+.persona-container{
+    width:100%;
+    height:70%;
+    display:flex;
+    justify-content: space-evenly;
+}
+.persona{
+    width:20rem;
+    height:25rem;
+    background-color:white;
+    opacity: 70%;
+}
