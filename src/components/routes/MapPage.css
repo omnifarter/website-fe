@@ -30,7 +30,7 @@
   }
   .back-button{
     align-self:flex-start;
-    margin: 0 0 0 2rem;
+    margin: 0 0 0 32px;
     position:fixed
   }
   .cpf-building-clicked{
@@ -143,8 +143,8 @@
     opacity: 90%;
     background-repeat: no-repeat;
     background-size: cover;
-    width:40rem;
-    height:10rem;
+    width:640px;
+    height:160px;
     animation:fadeIn;
     animation-duration: 1s;
     padding: 20px 20px 20px 30px;
@@ -154,13 +154,13 @@
     text-align: center;
   }
   .MapCard-content{
-    width:37rem;
-    height:6rem;
+    width:592px;
+    height:96px;
     overflow-y:auto;
     
   }
   @keyframes fadeIn{
-    from{opacity:0%;margin-top:-1rem}
+    from{opacity:0%;margin-top:-16px}
     to{opacity:90%;margin-top:0}
   }
   ::-webkit-scrollbar {
@@ -182,7 +182,7 @@
   height:80%;
   background-color:#E6EBF1;
   border-radius:10px;
-  margin: 2rem 3rem 0 0;
+  margin: 32px 48px 0 0;
   padding: 50px;
   z-index:20;
 }

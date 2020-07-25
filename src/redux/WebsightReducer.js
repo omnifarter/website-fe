@@ -2,7 +2,7 @@ import axios from 'axios'
 const initState = {
     age:null,
 }
-const URL = "http://localhost:3000"
+const URL = "http://api.cpf.gabphy.com"
 export default function WebSightReducer(state=initState, action){
     switch(action.type){
         case "SET_RETIREMENT": {

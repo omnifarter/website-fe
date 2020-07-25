@@ -4,7 +4,7 @@
 }
 h1{
     margin:0;
-    padding-top:3rem;
+    padding-top:48px;
 }
 .persona{
     width:100%;
@@ -39,7 +39,7 @@ img {
     height:100%;
     background-repeat:no-repeat;
     width:40%;
-    padding: 15rem 5rem 5rem 5rem
+    padding: 240px 80px 80px 80px
 }
 .form-group{
     align-items:flex-start;
@@ -50,7 +50,7 @@ img {
     flex-direction:row;
 }
 .form-heading-radio{
-    margin-right:1rem
+    margin-right:16px
 }
 input{
     border: none;
