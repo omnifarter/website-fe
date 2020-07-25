@@ -22,13 +22,14 @@ import LogoName from '../Components/LogoName';
 
 const drawerWidth = 240;
 const yankeesBlue = '#183040';
+const fontColor = '#FFFFFF';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
   drawer: {
-    backgroundColor: yankeesBlue,
+    // backgroundColor: yankeesBlue,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
@@ -58,13 +59,16 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     backgroundColor: yankeesBlue,
     width: drawerWidth,
+    
   },
   content: {
-    backgroundColor: yankeesBlue,
+    // backgroundColor: yankeesBlue,
     flexGrow: 1,
     padding: theme.spacing(3),
   },
 }));
+
+
 
 function PageFrame(props) {
   const { window } = props;
@@ -77,7 +81,7 @@ function PageFrame(props) {
   };
 
   const leftDrawer = (
-    <div>
+    <div style={{ color: fontColor }} >
       <div className={classes.toolbar}>
         <ProfileCard/>
       </div>
@@ -85,39 +89,38 @@ function PageFrame(props) {
       <List>
           <ListItem>
             <ListItemIcon><HomeRoundedIcon htmlColor="white" /></ListItemIcon>
-            <ListItemText primary="Home" htmlColor="white"/>
+            <ListItemText  primary="Home"/>
           </ListItem>
           <ListItem>
             <ListItemIcon><SearchRoundedIcon htmlColor="white" /></ListItemIcon>
-            <ListItemText primary="Discover" />
+            <ListItemText  primary="Discover" />
           </ListItem>
           <ListItem>
             <ListItemIcon><BookmarksRoundedIcon htmlColor="white" /></ListItemIcon>
-            <ListItemText primary="Saved" />
+            <ListItemText  primary="Saved" />
           </ListItem>
       </List>
     </div>
   );
 
   const rightDrawer = (
-    <div>
+    <div style={{ color: fontColor }}>
       <Divider />
       <List>
           <ListItem>
-            <ListItemText primary="Suggested Follows" />
+            <ListItemText style={{ color: '#FFFFFF' }} primary="Suggested Follows" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Add specific card details"/>
+            <ListItemText style={{ color: '#FFFFFF' }} primary="Add specific card details"/>
           </ListItem>
       </List>
-
     </div>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <div>
+    <div >
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <IconButton
@@ -181,7 +184,6 @@ function PageFrame(props) {
         </Hidden>
       </nav>
       <div className={classes.toolbar} />
-      
       <MainBody/>
     </div>
   );
