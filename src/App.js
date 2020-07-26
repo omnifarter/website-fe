@@ -1,17 +1,41 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Link} from 'react-router-dom'
 import {Button} from 'reactstrap'
-import { Provider } from 'react-redux';
-import store from './redux/store'
 import HomePage from './components/routes/HomePage'
-function App() {
+import MapPage from './components/routes/MapPage'
+import { Route, Link, BrowserRouter as Router,Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
+const PrivateRoute = ({component: Component,isSignedIn, ...rest}) => {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+      <Route {...rest} render={props => (
+        isSignedIn ?
+              <Component {...props} />
+          : <Redirect to="/" />
+      )} />
   );
+      }
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      isSignedIn:false
+    };
+  }
+  componentWillReceiveProps(){
+      this.setState({isSignedIn:true})
+  }
+  render(){
+    return (
+      <div className="App">
+        <Router>
+        <Route exact path="/" component={HomePage} />
+        <PrivateRoute exact path="/map" component={MapPage} isSignedIn={this.state.isSignedIn} exact />
+        </Router>
+      </div>
+    );  
+  }
 }
 
-export default App;
+export default connect(store =>({WebSight:store.WebSight})) (App)

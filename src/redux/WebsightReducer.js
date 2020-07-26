@@ -100,8 +100,7 @@ export const getHDB = (data) =>{
         result.forEach(item => {
             let index = parsedData.findIndex((element)=>{return element.topic === item.topic})
             if(index!==-1){
-                parsedData[index].text += (`
-` +item.text)
+                parsedData[index].text += (item.text)
             }
             else{
                 parsedData.push(item)
