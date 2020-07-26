@@ -15,7 +15,7 @@ class SecondForm extends React.Component{
             <div className="second-form">
             <Form>
                 <FormGroup className="form-group">
-                    <legend className='form-heading'>Are you looking to buy or sell a HDB?</legend>
+                    <h5 className='form-heading'>Are you looking to buy or sell a HDB?</h5>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="HDBtype" onChange={()=>{this.setState({HDBtype:'0'})}} />
                     I'm looking to buy a new HDB flat
@@ -31,7 +31,7 @@ class SecondForm extends React.Component{
                 </FormGroup>
 
                 <FormGroup className="form-group">
-                    <legend className='form-heading'>Are you looking to take a bank or HDB loan?</legend>
+                    <h5 className='form-heading'>Are you looking to take a bank or HDB loan?</h5>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="loan" onChange={()=>{this.setState({loan:'0'})}} />
                     HDB loan

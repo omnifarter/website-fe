@@ -12,9 +12,12 @@ class MapPage extends React.Component {
 
     constructor(props) {
         super(props)
+        let name = this.props.WebSight.name;
         this.state={
+            name:name.split(' ')[0],
             selected:null
         }
+        
     }
     onClick=(icon)=>{
         if(this.state.selected===null){
@@ -78,6 +81,9 @@ class MapPage extends React.Component {
             <img src={HDB} className={this.state.selected==='hdb'?"hdb-building-clicked":(this.state.selected===null?"hdb-building":"hdb-building-hidden")} onClick={()=>{this.onClick('hdb')}}/>
             <img src={Hospital}className={this.state.selected==='hospital'?"hospital-building-clicked":(this.state.selected===null?"hospital-building":"hospital-building-hidden")} onClick={()=>{this.onClick('hospital')}}/>
         </div>
+<h5 className={!this.state.selected?"extra-info":"extra-info-hidden"} >
+            {"Hey "+ this.state.name + "! Don't know what to do? Click on one of the buildings to find out more!"}
+            </h5>
         {this.state.selected=='cpf' &&
                         <div className="cards-container">
                                         <button className="back-button" onClick={()=>{this.setState({selected:null})}}>back</button>

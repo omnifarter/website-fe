@@ -104,7 +104,6 @@
     animation-duration:1s;  
     position: absolute;;
   }
-
   @keyframes hospitalAnimation{
     from {transform:scale(1);margin-left:77%;   margin-top:-5%;  }
     to {transform:scale(2);  margin-left:30%;   
@@ -148,7 +147,7 @@
     animation:fadeIn;
     animation-duration: 1s;
     padding: 20px 20px 20px 30px;
-    margin: 0px 20px 20px 0px;
+    margin: 0px 80px 20px 0px;
   }
   .MapCard-topic{
     text-align: center;
@@ -157,7 +156,7 @@
     width:592px;
     height:96px;
     overflow-y:auto;
-    
+    text-align:start
   }
   @keyframes fadeIn{
     from{opacity:0%;margin-top:-16px}
@@ -178,12 +177,54 @@
 }
 
 .second-form{
-  width:40%;
-  height:80%;
+  width:30%;
+  height:60%;
   background-color:#E6EBF1;
   border-radius:10px;
-  margin: 32px 48px 0 0;
+  margin: 10% 10% 0 0;
   padding: 50px;
   z-index:20;
+  animation:fadeInForms;
+  animation-duration: 1s;
+  text-align:start;
 }
   
+.extra-info{
+  width:400px;
+  height:150px;
+  background-color:#E6EBF1 ;
+  border-radius:10px;
+  padding: 30px;
+  position:fixed;
+  margin: 43% 0% 0% 2%;
+  animation: fadeInExtraInfo;
+  animation-duration: 0.5s;
+
+}
+@keyframes fadeInExtraInfo{
+  from{opacity:0%;}
+  to{opacity:100%;}
+}
+
+.extra-info-hidden{
+  width:400px;
+  height:150px;
+  background-color:#E6EBF1 ;
+  border-radius:10px;
+  padding: 30px;
+  position:fixed;
+  margin: 43% 0% 0% 2%;
+  animation: fadeOutExtraInfo;
+  animation-duration: 1s;
+  opacity:0%;
+}
+@keyframes fadeOutExtraInfo{
+  from{opacity:100%;}
+  to{opacity:0%;}
+}
+
+@keyframes fadeInForms{
+  from{opacity:0%}
+  to{opacity:100%}
+}
+

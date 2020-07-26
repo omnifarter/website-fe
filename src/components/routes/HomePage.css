@@ -20,8 +20,9 @@ h1{
     background-repeat:no-repeat;
     background-size: contain;
 }
-.img-container{
-    margin-left:10%
+.img-position{
+    margin-top:70%;
+    transform: scale(2);
 }
 img {
     max-width: 100%;
@@ -39,7 +40,7 @@ img {
     height:100%;
     background-repeat:no-repeat;
     width:40%;
-    padding: 240px 80px 80px 80px
+    padding: 17% 6% 6% 6%
 }
 .form-group{
     align-items:flex-start;
