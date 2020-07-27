@@ -1,6 +1,7 @@
 import React from 'react';
 import './routes/MapPage.css'
-import studentGirl from '../static/persona/1x/student_girl.png'
+import studentGirl from '../static/persona/1x/StudentGirl.png'
+import studentBoy from '../static/persona/1x/StudentBoy.png'
 import workingGuy from '../static/persona/1x/working_guy.png'
 import workingGirl from '../static/persona/1x/working_girl.png'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
@@ -33,6 +34,9 @@ class PersonaCard extends React.Component {
             if (this.state.image != studentGirl && this.state.gender === "Female" && this.state.occupation === "Student") {
                 this.setState({ image: studentGirl })
             }
+            if (this.state.image != studentBoy && this.state.gender === "Male" && this.state.occupation === "Student") {
+                this.setState({ image: studentBoy })
+            }
         }
         if (this.state.occupation != nextState.occupation) {
             if (this.state.image != workingGuy && this.state.gender === 'Male' && (this.state.occupation === "Working adult" || this.state.occupation === "Self-employed")) {
@@ -43,6 +47,9 @@ class PersonaCard extends React.Component {
             }
             if (this.state.image != studentGirl && this.state.gender === "Female" && this.state.occupation === "Student") {
                 this.setState({ image: studentGirl })
+            }
+            if (this.state.image != studentBoy && this.state.gender === "Male" && this.state.occupation === "Student") {
+                this.setState({ image: studentBoy })
             }
         }
     }
