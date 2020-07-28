@@ -198,7 +198,7 @@
     border-radius:10px;
     padding: 30px;
     position:fixed;
-    margin: 43% 0% 5% 2%;
+    margin: 39% 0% 0% 2%;
     animation: fadeInExtraInfo;
     animation-duration: 0.5s;
 
@@ -215,7 +215,7 @@
     border-radius:10px;
     padding: 30px;
     position:fixed;
-    margin: 40% 0% 0% 2%;
+    margin: 39% 0% 0% 2%;
     animation: fadeOutExtraInfo;
     animation-duration: 1s;
     opacity:0%;
