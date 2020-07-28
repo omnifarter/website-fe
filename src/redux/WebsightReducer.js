@@ -23,7 +23,8 @@ export default function WebSightReducer(state=initState, action){
                 name:action.name,
                 age:action.age,
                 gender:action.gender,
-                occupation:action.occupation
+                occupation:action.occupation,
+                image:action.image
             }
         }
         case "SET_HEALTHCARE":{
@@ -37,8 +38,8 @@ export default function WebSightReducer(state=initState, action){
     
 }
 
-export const setForm = (name,age,gender,occupation) => {
-    return({ type:"SET_FORM",name,age,gender,occupation})
+export const setForm = (name,age,gender,occupation,image) => {
+    return({ type:"SET_FORM",name,age,gender,occupation,image})
 }
 export const getRetirement = (age) => {
     return async (dispatch) =>{
@@ -75,7 +76,7 @@ export const getRetirement = (age) => {
         console.log('this is the age category:' + ageCategory)
         let response = await axios.get(URL+'/retirement',config)
         let result = response.data.map((item)=>{
-            return {topic:item.topic,text:item.text}
+            return {topic:item.topic,text:item.text,link:item.link,linkText:item["link text"]}
         })
         dispatch({type:"SET_RETIREMENT",result})
     }
@@ -94,13 +95,17 @@ export const getHDB = (data) =>{
         console.log('this is running with config: ' + config)
         let response = await axios.get(URL+'/housing',config)
         let result = response.data.map((item)=> {
-            return {topic:item.topic,text:item.text}
+            return {topic:item.topic,text:item.text,link:item.link,linkText:item["link text"]}
         })
         let parsedData=[]
         result.forEach(item => {
             let index = parsedData.findIndex((element)=>{return element.topic === item.topic})
             if(index!==-1){
                 parsedData[index].text += (item.text)
+                if(item.link){
+                    parsedData[index].link = item.link
+                    parsedData[index].linkText = item.linkText
+                }
             }
             else{
                 parsedData.push(item)
@@ -157,7 +162,7 @@ export const getHospital=(age,ISP,PEC)=>{
 
         let response = await axios.get(URL+'/healthcare',config)
         let result = response.data.map((item)=> {
-            return {topic:item.topic,text:item.text}
+            return {topic:item.topic,text:item.text,link:item.link,linkText:item["link text"]}
         })
         let parsedData=[]
         result.forEach(item => {
