@@ -71,7 +71,7 @@ class PersonaCard extends React.Component {
             }
         }
         if(event.target.name==='age'){
-            if(event.target.value<0){
+            if(event.target.value<0 || event.target.value===""){
                 this.setState({ageIsInvalid:true})
             }
             else{
@@ -89,7 +89,7 @@ class PersonaCard extends React.Component {
         if(this.state.name ===""){
             await this.setState({nameIsInvalid:true})
         }
-        if(this.state.age === null){
+        if(this.state.age === null || this.state.age===""){
             await this.setState({ageIsInvalid:true})
         }
         if(!this.state.nameIsInvalid && !this.state.ageIsInvalid){

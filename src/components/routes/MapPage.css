@@ -32,7 +32,7 @@
     align-self:flex-start;
     margin: 0 0 0 70px;
     position:fixed
-  }
+  } 
   .cpf-building-clicked{
     transform:scale(2);
     margin-left:40%;   
@@ -156,8 +156,7 @@
     margin: 0px 80px 20px 0px;
   }
   .MapCard-topic{
-    margin-top: 8px;
-    font-size: x-large;
+    font-size: large;
     text-align: center;
   } 
   .MapCard-content{
@@ -205,7 +204,7 @@
   border-radius:10px;
   padding: 30px;
   position:fixed;
-  margin: 40% 0% 0% 2%;
+  margin: 43% 0% 5% 2%;
   animation: fadeInExtraInfo;
   animation-duration: 0.5s;
 
