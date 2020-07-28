@@ -42,7 +42,8 @@ img {
     height:100%;
     background-repeat:no-repeat;
     width:40%;
-    padding: 17% 6% 6% 6%
+    padding: 17% 6% 6% 6%;
+    margin-right:3%
 }
 .form-group{
     align-items:flex-start;
