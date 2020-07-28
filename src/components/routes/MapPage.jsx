@@ -31,22 +31,22 @@ class MapPage extends React.Component {
     constructor(props) {
         super(props)
         let name = this.props.WebSight.name;
-        this.state={
-            name:name.split(' ')[0],
-            selected:null
+        this.state = {
+            name: name.split(' ')[0],
+            selected: null
         }
-        
+
     }
-    onClick=(icon)=>{
-        if(this.state.selected===null){
-            this.setState({ selected:icon})
+    onClick = (icon) => {
+        if (this.state.selected === null) {
+            this.setState({ selected: icon })
         }
-        else{
-            this.setState({ selected:null})
+        else {
+            this.setState({ selected: null })
         }
     }
-    renderCards(type){
-        if(type=='cpf'){
+    renderCards(type) {
+        if (type == 'cpf') {
             console.log(this.props.WebSight.retirement)
             return(
                 this.props.WebSight.retirement.map((object)=>{
@@ -54,10 +54,10 @@ class MapPage extends React.Component {
                         return <MapCard key={object.topic} content={object.text} topic={object.topic} link={object.link} linkText={object.linkText} />
                     }
                 })
-                )
+            )
         }
-        if(type=='hdb' && !this.props.WebSight.housing){
-            return(
+        if (type == 'hdb' && !this.props.WebSight.housing) {
+            return (
                 // ask for more questions (return a new form?)
                 <SecondForm />
             )
@@ -69,11 +69,11 @@ class MapPage extends React.Component {
                         return <MapCard key={object.topic} content={object.text} topic={object.topic} link={object.link} linkText={object.linkText} />
                     }
                 })
-                )
+            )
         }
 
-        if(type=='hospital' && !this.props.WebSight.healthcare){
-            return(
+        if (type == 'hospital' && !this.props.WebSight.healthcare) {
+            return (
                 // ask for more questions (return a new form?)
                 <ThirdForm />
             )
@@ -85,7 +85,7 @@ class MapPage extends React.Component {
                         return <MapCard key={object.topic} content={object.text} topic={object.topic} link={object.link} linkText={object.linkText} />
                     }
                 })
-                )
+            )
 
         }
 
@@ -122,12 +122,12 @@ class MapPage extends React.Component {
                 {this.renderCards('hospital')}
         </div>} 
 
-        <div className="map-bg">
-        </div>
-    </div>
-    )
-  }
+                <div className="map-bg">
+                </div>
+            </div>
+        )
+    }
 }
-export default connect(store =>({WebSight:store.WebSight}),
+export default connect(store => ({ WebSight: store.WebSight }),
 
-) (MapPage)
+)(MapPage)
