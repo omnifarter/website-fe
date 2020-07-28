@@ -30,13 +30,8 @@
   }
   .back-button{
     align-self:flex-start;
-<<<<<<< HEAD
-    margin: 0 0 0 32px;
-    position:fixed;
-=======
     margin: 0 0 0 70px;
     position:fixed
->>>>>>> 3664439d8db733287201ae5ef9311fc68c6db2fa
   }
   .cpf-building-clicked{
     transform:scale(2);
@@ -128,6 +123,12 @@
     from {visibility :visible;opacity: 100%;}
     to {opacity: 0%;}
   }
+  .school-building{
+    margin-left:40%;
+    margin-top:-25%;
+    transition: transform .2s; /* Animation */
+    position: absolute;;
+  }
   
   .cards-container{
     height:100%;
@@ -155,14 +156,10 @@
     margin: 0px 80px 20px 0px;
   }
   .MapCard-topic{
-<<<<<<< HEAD
     margin-top: 8px;
     font-size: x-large;
-=======
-    font-size: large;
->>>>>>> 3664439d8db733287201ae5ef9311fc68c6db2fa
     text-align: center;
-  }
+  } 
   .MapCard-content{
     margin-top: 25px; 
     overflow-y:auto;
