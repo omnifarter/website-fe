@@ -4,7 +4,7 @@ import studentGirl from '../static/persona/1x/StudentGirl.png'
 import studentBoy from '../static/persona/1x/StudentBoy.png'
 import workingGuy from '../static/persona/1x/working_guy.png'
 import workingGirl from '../static/persona/1x/working_girl.png'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText,FormFeedback } from 'reactstrap';
 import { connect } from 'react-redux'
 import { getRetirement, setForm } from '../redux/WebsightReducer'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -13,12 +13,13 @@ class PersonaCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: null,
+            name: "",
             image: studentGirl,
             age: null,
             isFormSubmitted: false,
             gender: "Female",
-            occupation: 'Student'
+            occupation: 'Student',
+            nameIsInvalid:false,
         }
     }
 
@@ -53,19 +54,51 @@ class PersonaCard extends React.Component {
             }
         }
     }
+    hasNumbers(t){
+        var regex = /\d/g;
+        return regex.test(t);
+    }    
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value })
+        if(event.target.name==='name'){
+            if(event.target.value.length==0){
+                this.setState({nameIsInvalid:true})
+            }
+            else if(this.hasNumbers(event.target.value)){
+                this.setState({nameIsInvalid:true})
+            }
+            else{
+                this.setState({nameIsInvalid:null})
+            }
+        }
+        if(event.target.name==='age'){
+            if(event.target.value<0){
+                this.setState({ageIsInvalid:true})
+            }
+            else{
+                this.setState({ageIsInvalid:false})
+            }
+        }
 
+        this.setState({ [event.target.name]: event.target.value })
+    
 
     }
     async submitForm(event) {
         event.preventDefault()
         //update redux store
-        this.props.setForm(this.state.name, this.state.age, this.state.gender, this.state.occupation,this.state.image)
-        //preload the retirement content first
-        await this.props.getRetirement(this.state.age)
-        if (this.props.WebSight.retirement) {
-            this.setState({ isFormSubmitted: true })
+        if(this.state.name ===""){
+            await this.setState({nameIsInvalid:true})
+        }
+        if(this.state.age === null){
+            await this.setState({ageIsInvalid:true})
+        }
+        if(!this.state.nameIsInvalid && !this.state.ageIsInvalid){
+                this.props.setForm(this.state.name, this.state.age, this.state.gender, this.state.occupation,this.state.image)
+            //preload the retirement content first
+            await this.props.getRetirement(this.state.age)
+            if (this.props.WebSight.retirement) {
+                this.setState({ isFormSubmitted: true })
+            }
         }
     }
     render() {
@@ -81,13 +114,20 @@ class PersonaCard extends React.Component {
                 </div>
                 <Form className="form-container">
                     <FormGroup className="form-group">
-                        <Label className='form-heading'>Name:</Label>
-                        <Input placeholder="enter name" type="text" name="name" value={this.state.name} onChange={this.handleChange.bind(this)} />
+                        <Label className='form-heading' >Name:</Label>
+                        <Input invalid={this.state.nameIsInvalid} placeholder="enter name" type="text" name="name" value={this.state.name} onChange={this.handleChange.bind(this)} />
+                        <FormFeedback invalid style={{textAlign:'start'}}>
+                        Uh oh! Did you input your name correctly?
+                        </FormFeedback>
+                        
                     </FormGroup>
 
                     <FormGroup className="form-group">
                         <Label className='form-heading'>Age:</Label>
-                        <Input placeholder="enter age" type="number" name="age" value={this.state.age} onChange={this.handleChange.bind(this)} />
+                        <Input placeholder="enter age" type="number" name="age" invalid={this.state.ageIsInvalid} value={this.state.age} onChange={this.handleChange.bind(this)} />
+                        <FormFeedback invalid style={{textAlign:'start'}}>
+                        Uh oh! Did you input your age correctly?
+                        </FormFeedback>
                     </FormGroup>
 
                     <FormGroup className="form-group form-radio">
