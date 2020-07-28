@@ -2,6 +2,7 @@ import React from 'react'
 import CPFBuilding from '../../static/CPFBuilding.png'
 import HDB from '../../static/HDB.png'
 import Hospital from '../../static/Hospital.png'
+import School from '../../static/Education.png'
 import MapCard from '../mapCard'
 import SecondForm from '../SecondForm'
 import ThirdForm from '../ThirdForm'
@@ -100,6 +101,7 @@ class MapPage extends React.Component {
             {this.state.selected!=null && <Dialog selected={this.state.selected} />}
             <img src={HDB} className={this.state.selected==='hdb'?"hdb-building-clicked":(this.state.selected===null?"hdb-building":"hdb-building-hidden")} onClick={()=>{this.onClick('hdb')}}/>
             <img src={Hospital}className={this.state.selected==='hospital'?"hospital-building-clicked":(this.state.selected===null?"hospital-building":"hospital-building-hidden")} onClick={()=>{this.onClick('hospital')}}/>
+            {/* <img src={School} className='school-building' /> */}
 
         </div>
 <h5 className={!this.state.selected?"extra-info":"extra-info-hidden"} >

@@ -235,6 +235,25 @@
     margin-top:7%;
     transform:scale(0.2)
   }
+  .school-building{
+    margin-left:40%;
+    margin-top:-25%;
+    transition: transform .2s; /* Animation */
+    position: absolute;;
+  }
+  
+  .cards-container{
+    height:100%;
+    width:100%;
+    z-index: 3;
+    position: fixed;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    /* justify-content: space-around; */
+    padding: 50px 0px 50px 0px;
+    overflow-x:auto;
+  }
 
   .character-map-clicked{
     margin-left:400px;
@@ -260,6 +279,17 @@
   }
   .dialog-text{
     margin:auto;
+  } 
+  .MapCard-content{
+    margin-top: 25px; 
+    overflow-y:auto;
+    text-align:start;
+    height:200px;
+  }
+  
+  @keyframes fadeIn{
+    from{opacity:0%;margin-top:-16px}
+    to{opacity:90%;margin-top:0}
   }
 
   @keyframes fadeInDialog{
