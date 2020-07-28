@@ -62,3 +62,7 @@ input{
 .gender-container{
     align-self: flex-start;
 }
+.MapCard-link{
+    width:300px;
+    text-align:start;
+}

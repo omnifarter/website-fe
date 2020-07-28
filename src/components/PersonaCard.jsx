@@ -61,7 +61,7 @@ class PersonaCard extends React.Component {
     async submitForm(event) {
         event.preventDefault()
         //update redux store
-        this.props.setForm(this.state.name, this.state.age, this.state.gender, this.state.occupation)
+        this.props.setForm(this.state.name, this.state.age, this.state.gender, this.state.occupation,this.state.image)
         //preload the retirement content first
         await this.props.getRetirement(this.state.age)
         if (this.props.WebSight.retirement) {
@@ -112,7 +112,7 @@ class PersonaCard extends React.Component {
                             <option>Retired</option>
                         </Input>
                     </FormGroup>
-                    <button type='submit' onClick={this.submitForm.bind(this)}>click here to submit</button>
+                    <Button type='submit' color='primary' style ={{marginTop:'20px'}} onClick={this.submitForm.bind(this)}>click here to submit</Button>
                 </Form>
 
             </div>
@@ -123,6 +123,6 @@ class PersonaCard extends React.Component {
 export default connect(store => ({ WebSight: store.WebSight }),
     dispatch => ({
         getRetirement: (age) => dispatch(getRetirement(age)),
-        setForm: (name, age, gender, occupation) => dispatch(setForm(name, age, gender, occupation))
+        setForm: (name, age, gender, occupation,image) => dispatch(setForm(name, age, gender, occupation,image))
     })
 )(PersonaCard)
