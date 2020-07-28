@@ -112,7 +112,7 @@ class PersonaCard extends React.Component {
                             <option>Retired</option>
                         </Input>
                     </FormGroup>
-                    <button type='submit' onClick={this.submitForm.bind(this)}>click here to submit</button>
+                    <button type='submit' onClick={this.submitForm.bind(this)}>SUBMIT</button>
                 </Form>
 
             </div>

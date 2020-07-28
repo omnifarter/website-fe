@@ -31,7 +31,7 @@ class ThirdForm extends React.Component{
                 </FormGroup>
 
                 <FormGroup className="form-group">
-                    <legend className='form-heading'>Do you have any pre-existing conditions?</legend>
+                    <legend className='form-heading'>Do you have any pre-existing medical conditions?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="loan" onChange={()=>{this.setState({PEC:true})}} />
                     Yes
