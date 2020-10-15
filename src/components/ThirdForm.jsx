@@ -7,11 +7,11 @@ class ThirdForm extends React.Component{
     async submitForm(event){
         event.preventDefault()
         //get HDB
-        await this.props.getHospital({
-            age:this.props.WebSight.age,
-            ISP:this.state.ISP,
-            PEC:this.state.PEC
-        })
+        await this.props.getHospital(
+            this.props.WebSight.age,
+            this.state.ISP,
+            this.state.PEC
+        )
     }
 
     render(){
@@ -21,11 +21,11 @@ class ThirdForm extends React.Component{
                 <FormGroup className="form-group">
                     <legend className='form-heading'>Do you have an Integrated Shield Plan?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
-                    <Input type="radio" name="ISP" onChange={()=>{this.setState({ISP:true})}} />
+                    <Input type="radio" name="ISP" onChange={()=>{this.setState({ISP:'yes'})}} />
                     Yes
                     </FormGroup>
                     <FormGroup check>
-                    <Input type="radio" name="ISP" onChange={()=>{this.setState({ISP:false})}} />
+                    <Input type="radio" name="ISP" onChange={()=>{this.setState({ISP:'no'})}} />
                     No
                     </FormGroup>
                 </FormGroup>
@@ -33,11 +33,11 @@ class ThirdForm extends React.Component{
                 <FormGroup className="form-group">
                     <legend className='form-heading'>Do you have any pre-existing medical conditions?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
-                    <Input type="radio" name="loan" onChange={()=>{this.setState({PEC:true})}} />
+                    <Input type="radio" name="loan" onChange={()=>{this.setState({PEC:'yes'})}} />
                     Yes
                     </FormGroup>
                     <FormGroup check>
-                    <Input type="radio" name="loan" onChange={()=>{this.setState({PEC:false})}} />
+                    <Input type="radio" name="loan" onChange={()=>{this.setState({PEC:'no'})}} />
                     No
                     </FormGroup>
                 </FormGroup>

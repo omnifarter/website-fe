@@ -22,12 +22,11 @@ h1{
     background-repeat:no-repeat;
     background-size: contain;
 } */
-.img-position{
-    margin-top: 80%;
-    margin-left:70%;
+.background-img{
+    width:60% 
 }
 img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
 }
 .form-heading{
@@ -37,7 +36,7 @@ img {
     display:flex;
     flex-direction: column;
     background-image:url(/static/AvartarCreationFrameBlank.png);
-    background-size:cover;
+    background-size:80%;
     background-position: center;
     height:100%;
     background-repeat:no-repeat;

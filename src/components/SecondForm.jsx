@@ -7,7 +7,7 @@ class SecondForm extends React.Component{
     async submitForm(event){
         event.preventDefault()
         //get HDB
-        await this.props.getHDB({HDBtype:this.state.HDBtype,loan:this.state.loan})
+        await this.props.getHDB({HDBtype:this.state.HDBtype,loan:this.state.loan,intent:this.state.intent})
     }
 
     render(){
@@ -17,27 +17,34 @@ class SecondForm extends React.Component{
                 <FormGroup className="form-group">
                     <legend className='form-heading'>Are you looking to buy or sell a HDB?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
-                    <Input type="radio" name="HDBtype" onChange={()=>{this.setState({HDBtype:'0'})}} />
-                    I'm looking to buy a new HDB flat
+                    <Input type="radio" name="intent" onChange={()=>{this.setState({intent:'Buying'})}} />
+                    I'm looking to buy
                     </FormGroup>
                     <FormGroup check>
-                    <Input type="radio" name="HDBtype" onChange={()=>{this.setState({HDBtype:'1'})}} />
-                    I'm looking to buy a resale HDB flat
+                    <Input type="radio" name="intent" onChange={()=>{this.setState({intent:'Selling'})}} />
+                    I'm looking to sell
+                    </FormGroup>
+                </FormGroup>
+                <FormGroup className="form-group">
+                    <legend className='form-heading'>Are you looking for a BTO or a resale?</legend>
+                    <FormGroup style={{marginRight:'1rem'}} check>
+                    <Input type="radio" name="HDBtype" onChange={()=>{this.setState({HDBtype:'BTO'})}} />
+                    I'm looking to buy a BTO
                     </FormGroup>
                     <FormGroup check>
-                    <Input type="radio" name="HDBtype" onChange={()=>{this.setState({HDBtype:'2'})}} />
-                    I'm looking to sell my HDB flat
+                    <Input type="radio" name="HDBtype" onChange={()=>{this.setState({intent:'Resale'})}} />
+                    I'm looking to buy or sell a resale HDB
                     </FormGroup>
                 </FormGroup>
 
                 <FormGroup className="form-group">
                     <legend className='form-heading'>Are you looking to take a bank or HDB loan?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
-                    <Input type="radio" name="loan" onChange={()=>{this.setState({loan:'0'})}} />
+                    <Input type="radio" name="loan" onChange={()=>{this.setState({loan:'HDB'})}} />
                     HDB loan
                     </FormGroup>
                     <FormGroup check>
-                    <Input type="radio" name="loan" onChange={()=>{this.setState({loan:'1'})}} />
+                    <Input type="radio" name="loan" onChange={()=>{this.setState({loan:'Bank'})}} />
                     Bank loan
                     </FormGroup>
                 </FormGroup>
