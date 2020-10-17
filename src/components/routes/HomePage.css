@@ -79,6 +79,14 @@ input{
         grid-column-start: 1;
         grid-column-end: 2;
     }
+    .singpass{
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 500px;
+    }
     .form{        
         grid-row-start:1;
         grid-column-start: 2;
@@ -128,6 +136,14 @@ input{
         position: relative;
         right:0;
 
+    }
+    .singpass{
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 300px;
     }
     .background-img{
         grid-row-start: 1;
@@ -223,6 +239,7 @@ input{
         margin-top: 20%;
         margin-left:0%;
     }
+
     .background-img{
         grid-row-start: 1;
         grid-row-end: 3;
@@ -245,6 +262,14 @@ input{
         margin-right: 3%;
         
     }   
+    .singpass{
+        grid-row-start: 4;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 300px;
+    }
     .form-container{
         display:flex;
         flex-direction: column;
@@ -274,6 +299,15 @@ input{
         position: relative;
         margin-top: 10%;
         margin-left:0%;
+        width:400px;
+    }
+    .singpass{
+        grid-row-start: 4;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 200px;
     }
     .background-img{
         grid-row-start: 1;
@@ -326,6 +360,8 @@ input{
         position: relative;
         margin-top: 10%;
         margin-left:0%;
+        margin-right:0%;
+        width:300px;
     }
     .background-img{
         grid-row-start: 1;
