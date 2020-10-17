@@ -35,7 +35,7 @@ input{
     background-repeat:no-repeat;
     
 } */
-.form-container{
+/* .form-container{
     display:flex;
     flex-direction: column;
     height:100%;
@@ -43,7 +43,7 @@ input{
     min-height:800px;
     min-width:300px;
     padding-top:75%;
-}
+} */
 .form-group{
     margin-left: 15%;
     margin-right: 15%;
@@ -79,6 +79,14 @@ input{
         grid-column-start: 1;
         grid-column-end: 2;
     }
+    .singpass{
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 500px;
+    }
     .form{        
         grid-row-start:1;
         grid-column-start: 2;
@@ -110,7 +118,7 @@ input{
     }
 }
 /*large*/
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1374px) {
 
     .homepage{
         width:100%;
@@ -122,10 +130,66 @@ input{
         width:100%;
         height:100%;
         display:grid;
-        grid-template-columns: 40% 60%;
+        grid-template-columns: 50% 50%;
     }
     .img-position{
-        margin-top: 70%;
+        margin-top:30%;
+        position: relative;
+        right:0;
+
+    }
+    .singpass{
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 300px;
+    }
+    .background-img{
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .form{        
+        grid-row-start:1;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        background-image:url(/static/AvartarCreationFrameBlank.png);
+        background-size:100%;
+        background-repeat:no-repeat;
+        margin-right: 5%;
+        margin-left: 5%;
+        margin-top:-5%;
+    }
+    .form-container{
+        display:flex;
+        flex-direction: column;
+        max-width: 1200px;
+        position: relative; 
+        padding: 45% 2% 0% 2%;        
+    }
+    .form-group{
+        display:flex;
+        flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 1115px) {
+
+    .homepage{
+        width:100%;
+        height:100%;
+        background-image:url(/static/AvatarCreationBackground1980by1080Grass.png);
+        background-size: cover;
+    }
+    .persona{
+        width:100%;
+        height:100%;
+        display:grid;
+        grid-template-columns: 50% 50%;
+    }
+    .img-position{
+        margin-top:30%;
         position: relative;
         right:0;
 
@@ -140,16 +204,18 @@ input{
         grid-column-start: 2;
         grid-column-end: 3;
         background-image:url(/static/AvartarCreationFrameBlank.png);
-        background-size:100%;
+        background-size:100% 750px;
         background-repeat:no-repeat;
-        margin-right: 10px;
+        margin-right: 5%;
+        margin-left: 5%;
+        margin-top:-5%;
     }
     .form-container{
         display:flex;
         flex-direction: column;
         max-width: 1200px;
         position: relative; 
-        padding: 45% 8% 8% 8%;        
+        padding: 50% 2% 0% 2%;        
     }
     .form-group{
         display:flex;
@@ -157,50 +223,8 @@ input{
     }
   }
 
-  /*medium*/
-  @media screen and (max-width: 992px) {
-    .homepage{
-        width:100%;
-        height:100%;
-        background-image:url(/static/AvatarCreationBackground1980by1080Grass.png);
-        background-repeat: repeat-y;
-    }
-    .persona{
-        width:100%;
-        height:100%;
-        display:grid;
-    }
-    .img-position{
-        margin-top: 10%;
-        position: relative;
-        right:0;
-        width:80%
-
-    }
-    .form{
-        grid-column-start: 1;
-        grid-column-end: 3;
-        background-image:url(/static/AvartarCreationFrameBlank.png);
-        background-size:100%;
-        background-repeat:no-repeat;
-        
-    }
-    .form-container{
-        
-        display:flex;
-        flex-direction: column;
-        position: relative; 
-        margin-left: 10%;
-        margin-right: 10%;
-        /* padding: 45% 10% 10% 10%;         */
-    }
-    .form-group{
-        display:flex;
-        flex-direction: column;
-    }
-  }
 /*small*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 886px) {
     .homepage{
         background-image:url(/static/AvatarCreationBackground1980by1080Grass.png);
         background-repeat: repeat-y;
@@ -216,6 +240,7 @@ input{
         margin-top: 20%;
         margin-left:0%;
     }
+
     .background-img{
         grid-row-start: 1;
         grid-row-end: 3;
@@ -238,6 +263,14 @@ input{
         margin-right: 3%;
         
     }   
+    .singpass{
+        grid-row-start: 4;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 300px;
+    }
     .form-container{
         display:flex;
         flex-direction: column;
@@ -250,7 +283,7 @@ input{
     }
 }
 /*xtra small*/
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 539px) {
     .homepage{
         background-image:url(/static/AvatarCreationBackground1980by1080Grass.png);
         background-repeat: no-repeat;
@@ -267,6 +300,15 @@ input{
         position: relative;
         margin-top: 10%;
         margin-left:0%;
+        width:400px;
+    }
+    .singpass{
+        grid-row-start: 4;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .singpass-img{
+        max-width: 200px;
     }
     .background-img{
         grid-row-start: 1;
@@ -297,11 +339,63 @@ input{
         margin-left: 0%;
         margin-right: 0%;
         width:100%;
-        padding: 25vh 0% 0% 0%;     
+        padding: 65% 0% 0% 0%;     
     }
 }
 
-
+/*xtra small*/
+@media screen and (max-width: 374px) {
+    .homepage{
+        background-image:url(/static/AvatarCreationBackground1980by1080Grass.png);
+        background-repeat: no-repeat;
+        background-size: 200%;
+        background-color: darkslategrey;
+    }
+    
+    .persona{
+        width:100%;
+        height:100%;
+        display:grid;
+    }
+    .img-position{
+        position: relative;
+        margin-top: 10%;
+        margin-left:0%;
+        margin-right:0%;
+        width:300px;
+    }
+    .background-img{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    
+    }
+    .form{
+        grid-row-start:4;
+        grid-row-end:7;
+        grid-column-start: 1;
+        grid-column-end: 3;
+           
+        
+        background-image:url(/static/AvartarCreationFrameBlank.png);
+        background-size:100% 800px;
+        background-repeat:no-repeat;
+        margin-top:10%;
+        margin-left: 3%;
+        margin-right: 3%;
+        
+    }   
+    .form-container{
+        display:flex;
+        flex-direction: column;
+        position: relative; 
+        margin-left: 0%;
+        margin-right: 0%;
+        width:100%;
+        padding: 80% 0% 0% 0%;     
+    }
+}
 
 
 

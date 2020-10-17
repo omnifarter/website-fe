@@ -4,6 +4,7 @@ import studentGirl from '../static/persona/1x/StudentGirl.png'
 import studentBoy from '../static/persona/1x/StudentBoy.png'
 import workingGuy from '../static/persona/1x/working_guy.png'
 import workingGirl from '../static/persona/1x/working_girl.png'
+import singpass from '../static/singpass.png'
 import { Button, Form, FormGroup, Label, Input, FormText, FormFeedback, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux'
 import { getRetirement, setForm } from '../redux/WebsightReducer'
@@ -154,6 +155,9 @@ class PersonaCard extends React.Component {
                             <Button type='submit' color='primary' style={{ marginTop: '20px' }} onClick={this.submitForm.bind(this)}>SUBMIT</Button>
                         </FormGroup>
                     </Form>
+                </div>
+                <div className='singpass'>
+                    <img className='singpass-img' src={singpass} />
                 </div>
             </div>
         )
