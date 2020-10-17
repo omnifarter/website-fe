@@ -4,7 +4,7 @@ import studentGirl from '../static/persona/1x/StudentGirl.png'
 import studentBoy from '../static/persona/1x/StudentBoy.png'
 import workingGuy from '../static/persona/1x/working_guy.png'
 import workingGirl from '../static/persona/1x/working_girl.png'
-import { Button, Form, FormGroup, Label, Input, FormText,FormFeedback } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, FormFeedback, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux'
 import { getRetirement, setForm } from '../redux/WebsightReducer'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -19,7 +19,7 @@ class PersonaCard extends React.Component {
             isFormSubmitted: false,
             gender: "Female",
             occupation: 'Student',
-            nameIsInvalid:false,
+            nameIsInvalid: false,
         }
     }
 
@@ -54,46 +54,46 @@ class PersonaCard extends React.Component {
             }
         }
     }
-    hasNumbers(t){
+    hasNumbers(t) {
         var regex = /\d/g;
         return regex.test(t);
-    }    
+    }
     handleChange(event) {
-        if(event.target.name==='name'){
-            if(event.target.value.length==0){
-                this.setState({nameIsInvalid:true})
+        if (event.target.name === 'name') {
+            if (event.target.value.length == 0) {
+                this.setState({ nameIsInvalid: true })
             }
-            else if(this.hasNumbers(event.target.value)){
-                this.setState({nameIsInvalid:true})
+            else if (this.hasNumbers(event.target.value)) {
+                this.setState({ nameIsInvalid: true })
             }
-            else{
-                this.setState({nameIsInvalid:null})
+            else {
+                this.setState({ nameIsInvalid: null })
             }
         }
-        if(event.target.name==='age'){
-            if(event.target.value<0 || event.target.value===""){
-                this.setState({ageIsInvalid:true})
+        if (event.target.name === 'age') {
+            if (event.target.value < 0 || event.target.value === "") {
+                this.setState({ ageIsInvalid: true })
             }
-            else{
-                this.setState({ageIsInvalid:false})
+            else {
+                this.setState({ ageIsInvalid: false })
             }
         }
 
         this.setState({ [event.target.name]: event.target.value })
-    
+
 
     }
     async submitForm(event) {
         event.preventDefault()
         //update redux store
-        if(this.state.name ===""){
-            await this.setState({nameIsInvalid:true})
+        if (this.state.name === "") {
+            await this.setState({ nameIsInvalid: true })
         }
-        if(this.state.age === null || this.state.age===""){
-            await this.setState({ageIsInvalid:true})
+        if (this.state.age === null || this.state.age === "") {
+            await this.setState({ ageIsInvalid: true })
         }
-        if(!this.state.nameIsInvalid && !this.state.ageIsInvalid){
-                this.props.setForm(this.state.name, this.state.age, this.state.gender, this.state.occupation,this.state.image)
+        if (!this.state.nameIsInvalid && !this.state.ageIsInvalid) {
+            this.props.setForm(this.state.name, this.state.age, this.state.gender, this.state.occupation, this.state.image)
             //preload the retirement content first
             await this.props.getRetirement(this.state.age)
             if (this.props.WebSight.retirement) {
@@ -112,49 +112,49 @@ class PersonaCard extends React.Component {
                 <div className="background-img">
                     <img className='img-position' src={this.state.image} />
                 </div>
-                <Form className="form-container">
-                    <FormGroup className="form-group">
-                        <Label className='form-heading' >Name:</Label>
-                        <Input invalid={this.state.nameIsInvalid} placeholder="enter name" type="text" name="name" value={this.state.name} onChange={this.handleChange.bind(this)} />
-                        <FormFeedback invalid style={{textAlign:'start'}}>
-                        Uh oh! Did you input your name correctly?
+                <div className="form">
+                    <Form className="form-container">
+                        <FormGroup className="form-group">
+                            <Label className='form-heading' >Name:</Label>
+                            <Input invalid={this.state.nameIsInvalid} placeholder="enter name" type="text" name="name" value={this.state.name} onChange={this.handleChange.bind(this)} />
+                            <FormFeedback invalid style={{ textAlign: 'start' }}>
+                                Uh oh! Did you input your name correctly?
                         </FormFeedback>
-                        
-                    </FormGroup>
 
-                    <FormGroup className="form-group">
-                        <Label className='form-heading'>Age:</Label>
-                        <Input placeholder="enter age" type="number" name="age" invalid={this.state.ageIsInvalid} value={this.state.age} onChange={this.handleChange.bind(this)} />
-                        <FormFeedback invalid style={{textAlign:'start'}}>
-                        Uh oh! Did you input your age correctly?
+                        </FormGroup>
+                        <FormGroup className="form-group">
+                            <Label className='form-heading'>Age:</Label>
+                            <Input placeholder="enter age" type="number" name="age" invalid={this.state.ageIsInvalid} value={this.state.age} onChange={this.handleChange.bind(this)} />
+                            <FormFeedback invalid style={{ textAlign: 'start' }}>
+                                Uh oh! Did you input your age correctly?
                         </FormFeedback>
-                    </FormGroup>
-
-                    <FormGroup className="form-group form-radio">
-                        <Label className='form-heading form-heading-radio'>Gender:</Label>
-                        <FormGroup style={{ marginRight: '1rem' }} check>
-                            <Input type="radio" name="gender" onChange={() => { this.setState({ gender: 'Male' }) }} />
-                        Male
                         </FormGroup>
-                        <FormGroup check>
-                            <Input type="radio" name="gender" defaultChecked onChange={() => { this.setState({ gender: 'Female' }) }} />
-                        Female
+                        <FormGroup className="form-group form-radio">
+                            <Label className='form-heading form-heading-radio'>Gender:</Label>
+                            <FormGroup style={{ marginRight: '1rem' }} check>
+                                <Input type="radio" name="gender" onChange={() => { this.setState({ gender: 'Male' }) }} />
+                                        Male
+                                    </FormGroup>
+                            <FormGroup check>
+                                <Input type="radio" name="gender" defaultChecked onChange={() => { this.setState({ gender: 'Female' }) }} />
+                                        Female
+                                    </FormGroup>
                         </FormGroup>
-                    </FormGroup>
-
-                    <FormGroup className="form-group">
-                        <Label>Occupation:</Label>
-                        <Input type="select" name="occupation" onChange={this.handleChange.bind(this)}>
-                            <option>Student</option>
-                            <option>Self-employed</option>
-                            <option>Working adult</option>
-                            <option>Unemployed</option>
-                            <option>Retired</option>
-                        </Input>
-                    </FormGroup>
-                    <Button type='submit' color='primary' style ={{marginTop:'20px'}} onClick={this.submitForm.bind(this)}>SUBMIT</Button>
-                </Form>
-
+                        <FormGroup className="form-group">
+                            <Label>Occupation:</Label>
+                            <Input type="select" name="occupation" onChange={this.handleChange.bind(this)}>
+                                <option>Student</option>
+                                <option>Self-employed</option>
+                                <option>Working adult</option>
+                                <option>Unemployed</option>
+                                <option>Retired</option>
+                            </Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Button type='submit' color='primary' style={{ marginTop: '20px' }} onClick={this.submitForm.bind(this)}>SUBMIT</Button>
+                        </FormGroup>
+                    </Form>
+                </div>
             </div>
         )
     }
@@ -163,6 +163,6 @@ class PersonaCard extends React.Component {
 export default connect(store => ({ WebSight: store.WebSight }),
     dispatch => ({
         getRetirement: (age) => dispatch(getRetirement(age)),
-        setForm: (name, age, gender, occupation,image) => dispatch(setForm(name, age, gender, occupation,image))
+        setForm: (name, age, gender, occupation, image) => dispatch(setForm(name, age, gender, occupation, image))
     })
 )(PersonaCard)
