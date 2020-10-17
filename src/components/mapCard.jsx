@@ -8,16 +8,20 @@ render() {
     if(link){
         return(
             <div className="MapCard">
-                <h6 className="MapCard-topic">{this.props.topic}</h6>
-                <h5 className="MapCard-content">{this.props.content}  {linkContent} </h5>
+                <div className="MapCard-wrapper">
+                    <h6 className="MapCard-topic">{this.props.topic}</h6>
+                    <h5 className="MapCard-content">{this.props.content}  {linkContent} </h5>
+                </div>
             </div>
             )
     }
     else{
         return(
             <div className="MapCard">
-            <h6 className="MapCard-topic">{this.props.topic}</h6>
-            <h5 className="MapCard-content">{this.props.content}</h5>
+                <div className="MapCard-wrapper">
+                    <h6 className="MapCard-topic">{this.props.topic}</h6>
+                    <h5 className="MapCard-content">{this.props.content}</h5>
+                </div>
             </div>
 
         )

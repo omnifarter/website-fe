@@ -41,7 +41,7 @@ class ThirdForm extends React.Component{
                     No
                     </FormGroup>
                 </FormGroup>
-            <Button type="submit" style ={{marginTop:'20px'}} color="primary" onClick={this.submitForm.bind(this)}>Click here to submit</Button>                
+            <Button type="submit" style ={{marginTop:'20px',marginLeft:'15%'}} color="primary" onClick={this.submitForm.bind(this)}>Click here to submit</Button>                
             </Form>
             </div>
         )
