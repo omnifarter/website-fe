@@ -101,7 +101,7 @@ class MapPage extends React.Component {
             {this.state.selected!=null && <Dialog selected={this.state.selected} />}
             <img src={HDB} className={this.state.selected==='hdb'?"hdb-building-clicked":(this.state.selected===null?"hdb-building":"hdb-building-hidden")} onClick={()=>{this.onClick('hdb')}}/>
             <img src={Hospital}className={this.state.selected==='hospital'?"hospital-building-clicked":(this.state.selected===null?"hospital-building":"hospital-building-hidden")} onClick={()=>{this.onClick('hospital')}}/>
-            <img src={School} className='school-building' />
+            {/* <img src={School} className='school-building' /> */}
 
         </div>
 <h5 className={!this.state.selected?"extra-info":"extra-info-hidden"} >

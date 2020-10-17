@@ -2,7 +2,7 @@ import axios from 'axios'
 const initState = {
     age:null,
 }
-const URL = "http://api.cpf.gabphy.com"
+const URL = "http://localhost:3000"
 export default function WebSightReducer(state=initState, action){
     switch(action.type){
         case "SET_RETIREMENT": {
@@ -14,7 +14,7 @@ export default function WebSightReducer(state=initState, action){
         case "SET_HOUSING": {
             return{
                 ...state,
-                housing:action.parsedData
+                housing:action.result
             }
         }
         case "SET_FORM": {
@@ -30,7 +30,7 @@ export default function WebSightReducer(state=initState, action){
         case "SET_HEALTHCARE":{
             return{
                 ...state,
-                healthcare:action.parsedData
+                healthcare:action.result
             }
         }
         default: return initState
@@ -45,39 +45,16 @@ export const getRetirement = (age) => {
     return async (dispatch) =>{
         // do data parsing of parameters here...
         //send for retirement check
-        let ageCategory;
-        switch(true){
-            case (age <=55):
-                ageCategory = 0;
-                break;
-            case (age<=58):
-                ageCategory = 1;
-                break;
-            case (age<=62):
-                ageCategory = 2;
-                break;
-            case (age<=64):
-                ageCategory = 3;
-                break;
-            case (age>=65):
-                ageCategory = 4;
-                break;
-            default: 
-                ageCategory = null;
-                break;
-        }
-
         let config = {
             params:{
-                property:'age',
-                category:ageCategory
+                age:age
             }
         }
-        console.log('this is the age category:' + ageCategory)
         let response = await axios.get(URL+'/retirement',config)
         let result = response.data.map((item)=>{
-            return {topic:item.topic,text:item.text,link:item.link,linkText:item["link text"]}
+            return {topic:item['Subtopic 1'],text:item.Info ,link:item.Link}
         })
+        console.log(result)
         dispatch({type:"SET_RETIREMENT",result})
     }
 }
@@ -86,97 +63,49 @@ export const getHDB = (data) =>{
     return async (dispatch)=>{
         let config={
             params:{
-                property:'loan',
-                category:data.loan,
-                property2:'HDBtype',
-                category2:data.HDBtype
+                loan:data.loan,
+                HDBtype:data.HDBtype,
+                intent:data.intent
             }
         }
-        console.log('this is running with config: ' + config)
         let response = await axios.get(URL+'/housing',config)
         let result = response.data.map((item)=> {
-            return {topic:item.topic,text:item.text,link:item.link,linkText:item["link text"]}
+            return {topic:item['Subtopic 1'],text:item.Info ,link:item.Link}
         })
-        let parsedData=[]
-        result.forEach(item => {
-            let index = parsedData.findIndex((element)=>{return element.topic === item.topic})
-            if(index!==-1){
-                parsedData[index].text += (item.text)
-                if(item.link){
-                    parsedData[index].link = item.link
-                    parsedData[index].linkText = item.linkText
-                }
-            }
-            else{
-                parsedData.push(item)
-            }
-        });
-        console.log(parsedData)
-        dispatch({type:"SET_HOUSING",parsedData})
+        dispatch({type:"SET_HOUSING",result})
     }
 }
 
 export const getHospital=(age,ISP,PEC)=>{
     return async(dispatch)=>{
-        let ageCategory;
-        switch(true){
-            case (age <=40):
-                ageCategory = 0;
-                break;
-            case (age<=70):
-                ageCategory = 1;
-                break;
-            case (age>=71):
-                ageCategory = 2;
-                break;
-            default: 
-                ageCategory = null;
-                break;
-        }
         let ageGeneration;
         switch(true){
             case (age<=60):
-                ageGeneration=-1;
+                ageGeneration=null;
                 break;
             case (age>=71):
-                ageGeneration=0;
+                ageGeneration='Pioneer';
                 break;
             case(age>=61):
-                ageGeneration=1;
+                ageGeneration='Merdeka';
             default:
-                ageGeneration=-1;
+                ageGeneration=null;
                 break;
         }
         let config = {
             params:{
-                property:'age',
-                category:ageCategory,
-                property1:'ageGeneration',
-                category1:ageGeneration,
-                property2:'ISP',
-                category2:ISP,
-                property3:'PEC',
-                category3:PEC
+                age:age,
+                ISP:ISP,
+                PEC:PEC,
+                generation:ageGeneration
             }
         }
-
+        console.log(config)
         let response = await axios.get(URL+'/healthcare',config)
         let result = response.data.map((item)=> {
-            return {topic:item.topic,text:item.text,link:item.link,linkText:item["link text"]}
+            return {topic:item['Subtopic 1'],text:item.Info ,link:item.Link}
         })
-        let parsedData=[]
-        result.forEach(item => {
-            let index = parsedData.findIndex((element)=>{return element.topic === item.topic})
-            if(index!==-1){
-                parsedData[index].text += (`
-` +item.text)
-            }
-            else{
-                parsedData.push(item)
-            }
-        });
-        console.log(parsedData)
-        dispatch({type:"SET_HEALTHCARE",parsedData})
+        dispatch({type:"SET_HEALTHCARE",result})
     
     }
 }
