@@ -3,6 +3,7 @@ import CPFBuilding from '../../static/CPFBuilding.png'
 import HDB from '../../static/HDB.png'
 import Hospital from '../../static/Hospital.png'
 import School from '../../static/Education.png'
+import RotatePhone from '../../static/RotatePhone.png'
 import MapCard from '../mapCard'
 import SecondForm from '../SecondForm'
 import ThirdForm from '../ThirdForm'
@@ -34,9 +35,20 @@ class MapPage extends React.Component {
         let name = this.props.WebSight.name;
         this.state = {
             name: name.split(' ')[0],
-            selected: null
+            selected: null,
+
         }
 
+    }
+    componentDidMount(){
+        if(!!navigator.maxTouchPoints){
+            if(window.screen.orientation.angle ===0){
+                this.setState({isVertical:true})
+            }
+            window.addEventListener('resize',(evt)=>{
+                this.setState({isVertical:window.screen.orientation.angle ===0 ? true:false})
+            })
+        }
     }
     onClick = (icon) => {
         if (this.state.selected === null) {
@@ -93,6 +105,14 @@ class MapPage extends React.Component {
 
     }
   render() {
+      if(this.state.isVertical){
+        return(
+            <div className="dark-background">
+                <img src={RotatePhone}/>
+                <span className="rotate-phone-text">For the best viewing experience, please rotate your phone.</span>
+            </div>
+        )
+      }else
     return (
     <div className="Map-page">
         <div className="icon-container">
