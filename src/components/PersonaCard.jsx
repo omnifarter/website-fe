@@ -109,7 +109,6 @@ class PersonaCard extends React.Component {
 
     }
     async submitForm(event) {
-        debugger;
         if (event != null) {
             event.preventDefault()
         }
