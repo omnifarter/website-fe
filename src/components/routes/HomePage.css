@@ -113,7 +113,8 @@ input{
         align-items:flex-start;
         display:flex;
         flex-direction: column;
-        
+        font-size:1em !important;
+
     }
 }
 /*large*/

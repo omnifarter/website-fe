@@ -48,7 +48,7 @@ class SecondForm extends React.Component{
                     Bank loan
                     </FormGroup>
                 </FormGroup>
-            <Button type="submit" style ={{marginTop:'20px'}} color="primary" onClick={this.submitForm.bind(this)}>Click here to submit</Button>                
+            <Button type="submit" style ={{marginTop:'20px',marginLeft:'15%'}} color="primary" onClick={this.submitForm.bind(this)}>Click here to submit</Button>                
             </Form>
             </div>
         )

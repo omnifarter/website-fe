@@ -106,6 +106,6 @@ export const getHospital=(age,ISP,PEC)=>{
             return {topic:item['Subtopic 1'],text:item.Info ,link:item.Link}
         })
         dispatch({type:"SET_HEALTHCARE",result})
-    
     }
+
 }
