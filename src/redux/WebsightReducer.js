@@ -52,7 +52,11 @@ export const getRetirement = (age) => {
         }
         let response = await axios.get(URL+'/retirement',config)
         let result = response.data.map((item)=>{
-            return {topic:item['Subtopic 1'],text:item.Info ,link:item.Link}
+            let row = {topic:item['Subtopic 2'] !=null ? item['Subtopic 2'] : item['Subtopic 1'] ,text:item.Info ,link:item.Link}
+            if(row.link!=null){
+                row['linkText']='Click here to find out more'
+            }
+            return row
         })
         console.log(result)
         dispatch({type:"SET_RETIREMENT",result})
@@ -70,7 +74,11 @@ export const getHDB = (data) =>{
         }
         let response = await axios.get(URL+'/housing',config)
         let result = response.data.map((item)=> {
-            return {topic:item['Subtopic 1'],text:item.Info ,link:item.Link}
+            let row = {topic:item['Subtopic 2'] !=null ? item['Subtopic 2'] : item['Subtopic 1'] ,text:item.Info ,link:item.Link}
+            if(row.link!=null){
+                row['linkText']='Click here to find out more'
+            }
+            return row
         })
         dispatch({type:"SET_HOUSING",result})
     }
@@ -100,10 +108,13 @@ export const getHospital=(age,ISP,PEC)=>{
                 generation:ageGeneration
             }
         }
-        console.log(config)
         let response = await axios.get(URL+'/healthcare',config)
         let result = response.data.map((item)=> {
-            return {topic:item['Subtopic 1'],text:item.Info ,link:item.Link}
+            let row = {topic:item['Subtopic 2'] !=null ? item['Subtopic 2'] : item['Subtopic 1'] ,text:item.Info ,link:item.Link}
+            if(row.link!=null){
+                row['linkText']='Click here to find out more'
+            }
+            return row
         })
         dispatch({type:"SET_HEALTHCARE",result})
     }
