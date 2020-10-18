@@ -5,9 +5,9 @@ import studentBoy from '../static/persona/1x/StudentBoy.png'
 import workingGuy from '../static/persona/1x/working_guy.png'
 import workingGirl from '../static/persona/1x/working_girl.png'
 import singpass from '../static/singpass.png'
-import { Button, Form, FormGroup, Label, Input, FormText, FormFeedback, Row, Col } from 'reactstrap';
+import { Modal, ModalBody, ModalHeader, Button, Form, FormGroup, Label, Input, FormText, FormFeedback, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux'
-import { getRetirement, setForm } from '../redux/WebsightReducer'
+import { getRetirement, getHospital, getHDB, setForm } from '../redux/WebsightReducer'
 import 'bootstrap/dist/css/bootstrap.css';
 import { Redirect } from 'react-router-dom'
 class PersonaCard extends React.Component {
@@ -21,7 +21,10 @@ class PersonaCard extends React.Component {
             gender: "Female",
             occupation: 'Student',
             nameIsInvalid: false,
+            isModalOpen: false,
         }
+        this.toggleModal = this.toggleModal.bind(this);
+        this.autoFill = this.autoFill.bind(this);
     }
 
     componentDidUpdate(nextProps, nextState) {
@@ -58,6 +61,27 @@ class PersonaCard extends React.Component {
     hasNumbers(t) {
         var regex = /\d/g;
         return regex.test(t);
+
+    }
+    toggleModal() {
+        if (!this.state.isModalOpen) {setTimeout(this.autoFill, 3000);}
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+        
+
+    }
+    async autoFill() {
+        this.setState({
+            name: "Crystal",
+            image: studentGirl,
+            age: 21,
+            gender: "Female",
+            occupation: 'Student',
+            nameIsInvalid: false,
+        });
+        await this.submitForm(null);
+
     }
     handleChange(event) {
         if (event.target.name === 'name') {
@@ -85,7 +109,10 @@ class PersonaCard extends React.Component {
 
     }
     async submitForm(event) {
-        event.preventDefault()
+        debugger;
+        if (event != null) {
+            event.preventDefault()
+        }
         //update redux store
         if (this.state.name === "") {
             await this.setState({ nameIsInvalid: true })
@@ -96,6 +123,10 @@ class PersonaCard extends React.Component {
         if (!this.state.nameIsInvalid && !this.state.ageIsInvalid) {
             this.props.setForm(this.state.name, this.state.age, this.state.gender, this.state.occupation, this.state.image)
             //preload the retirement content first
+            if (event == null) {
+                await this.props.getHospital(this.state.age, 'no', 'no')
+                await this.props.getHDB({HDBtype:'BTO',loan:'HDB',intent:'Buying'})
+            }
             await this.props.getRetirement(this.state.age)
             if (this.props.WebSight.retirement) {
                 this.setState({ isFormSubmitted: true })
@@ -157,8 +188,13 @@ class PersonaCard extends React.Component {
                     </Form>
                 </div>
                 <div className='singpass'>
-                    <img className='singpass-img' src={singpass} />
+                    <Button onClick={this.toggleModal}>
+                        <img className='singpass-img' src={singpass} />
+                    </Button>
                 </div>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader >Redirecting to Singpass website</ModalHeader>
+                </Modal>
             </div>
         )
     }
@@ -167,6 +203,8 @@ class PersonaCard extends React.Component {
 export default connect(store => ({ WebSight: store.WebSight }),
     dispatch => ({
         getRetirement: (age) => dispatch(getRetirement(age)),
+        getHospital: (age,ISP,PEC) => dispatch(getHospital(age,ISP,PEC)),
+        getHDB: (data) => dispatch(getHDB(data)),
         setForm: (name, age, gender, occupation, image) => dispatch(setForm(name, age, gender, occupation, image))
     })
 )(PersonaCard)
