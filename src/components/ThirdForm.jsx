@@ -17,7 +17,7 @@ class ThirdForm extends React.Component{
     render(){
         return(
             <div className="second-form">
-            <Form>
+            <Form className="form-style">
                 <FormGroup className="form-group">
                     <legend className='form-heading'>Do you have an Integrated Shield Plan?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>

@@ -140,7 +140,14 @@ class PersonaCard extends React.Component {
         }
         return (
             <div className="persona">
+                
                 <div className="background-img">
+                <div className='singpass'>
+                    <Button onClick={this.toggleModal} style={{backgroundColor:`rgba(0,0,0,0)`,border:0}}>
+                        <img className='singpass-img' src={singpass} />
+                    </Button>
+                </div>
+
                     <img className='img-position' src={this.state.image} />
                 </div>
                 <div className="form">
@@ -185,11 +192,6 @@ class PersonaCard extends React.Component {
                             <Button type='submit' color='primary' style={{ marginTop: '20px' }} onClick={this.submitForm.bind(this)}>SUBMIT</Button>
                         </FormGroup>
                     </Form>
-                </div>
-                <div className='singpass'>
-                    <Button onClick={this.toggleModal}>
-                        <img className='singpass-img' src={singpass} />
-                    </Button>
                 </div>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader >Redirecting to Singpass website</ModalHeader>

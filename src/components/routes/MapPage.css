@@ -200,7 +200,7 @@
 
   .second-form{
     width:30%;
-    height:60%;
+    height:auto;
     background-color:#E6EBF1;
     border-radius:10px;
     padding: 50px;
@@ -390,3 +390,4 @@
   h5{
     font-size:1em !important;
   }
+
