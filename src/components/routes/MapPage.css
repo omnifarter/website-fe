@@ -41,8 +41,10 @@
       transform:scale(2);
       margin-left:40%;   
       margin-top:-3%;
-      animation: cpfAnimation;
-      animation-duration:1s;  
+      animation: cpfAnimation 1s;
+      -moz-animation: cpfAnimation 1s; /* Firefox */
+      -webkit-animation: cpfAnimation 1s; /* Safari and Chrome */
+      -o-animation: cpfAnimation 1s; /* Opera */    
       position: absolute;
       max-width: 5vw;
       height: auto;
@@ -50,9 +52,11 @@
     }
     .cpf-building-hidden{
       visibility: hidden;
-      animation: hideIcon;
+      animation: hideIcon 1s;
+      -moz-animation: hideIcon 1s; /* Firefox */
+      -webkit-animation: hideIcon 1s; /* Safari and Chrome */
+      -o-animation: hideIcon 1s; /* Opera */    
       position: absolute;
-      animation-duration: 1s;
       margin-left:40%;   
       margin-top:-3%;
       max-width: 5vw;
@@ -76,9 +80,11 @@
     .hdb-building-hidden{
       visibility: hidden;
       position: absolute;;
-      animation: hideIcon;
+      animation: hideIcon 1s;
+      -moz-animation: hideIcon 1s; /* Firefox */
+      -webkit-animation: hideIcon 1s; /* Safari and Chrome */
+      -o-animation: hideIcon 1s; /* Opera */    
       position: absolute;
-      animation-duration: 1s;
       margin-left:58%;   
       margin-top:-10%;
       max-width: 12vw;
@@ -89,8 +95,10 @@
       transform:scale(2);
       margin-left:28%;
       margin-top:0%;
-      animation: hdbAnimation;
-      animation-duration:1s;  
+      animation: hdbAnimation 1s;
+      -moz-animation: hdbAnimation 1s; /* Firefox */
+      -webkit-animation: hdbAnimation 1s; /* Safari and Chrome */
+      -o-animation: hdbAnimation 1s; /* Opera */    
       position: absolute;
       max-width: 12vw;
       height: auto;
@@ -116,8 +124,10 @@
     .hospital-building-clicked{
       transform:scale(2);
       margin-left:36%;
-      animation: hospitalAnimation;
-      animation-duration:1s;  
+      animation: hospitalAnimation 1s;
+      -moz-animation: hospitalAnimation 1s; /* Firefox */
+      -webkit-animation: hospitalAnimation 1s; /* Safari and Chrome */
+      -o-animation: hospitalAnimation 1s; /* Opera */    
       position: absolute;
       max-width: 7vw;
       height: auto;
@@ -131,8 +141,10 @@
     .hospital-building-hidden{
       visibility: hidden;
       position: absolute;
-      animation: hideIcon;
-      animation-duration: 1s;
+      animation: hideIcon 1s;
+      -moz-animation: hideIcon 1s; /* Firefox */
+      -webkit-animation: hideIcon 1s; /* Safari and Chrome */
+      -o-animation: hideIcon 1s; /* Opera */    
       margin-left:77%;   
       margin-top:-5%;
       max-width: 7vw;
@@ -162,8 +174,10 @@
       background-size: cover;
       width: 600px;
       height:300px;
-      animation:fadeIn;
-      animation-duration: 1s;
+      animation:fadeIn 1s;
+      -moz-animation: fadeIn 1s; /* Firefox */
+      -webkit-animation: fadeIn 1s; /* Safari and Chrome */
+      -o-animation: fadeIn 1s; /* Opera */    
       padding: 20px 20px 20px 30px;
       margin: 0px 5% 2% 0px;
     }
@@ -205,10 +219,13 @@
     border-radius:10px;
     padding: 50px;
     z-index:20;
-    animation:fadeInForms;
-    animation-duration: 1s;
-    text-align:start;
+    animation:fadeInForms 1s;
+    -moz-animation: fadeInForms 1s; /* Firefox */
+    -webkit-animation: fadeInForms 1s; /* Safari and Chrome */
+    -o-animation: fadefadeInFormsIn 1s; /* Opera */    
+  text-align:start;
     font-size:1em !important;
+    margin-right:30px
   }
   @media only screen and (max-width:1200px) {
     .second-form{
@@ -218,9 +235,11 @@
       border-radius:10px;
       padding: 50px;
       z-index:20;
-      animation:fadeInForms;
-      animation-duration: 1s;
-      text-align:start;
+      animation:fadeInForms 1s;
+      -moz-animation: fadeInForms 1s; /* Firefox */
+      -webkit-animation: fadeInForms 1s; /* Safari and Chrome */
+      -o-animation: fadefadeInFormsIn 1s; /* Opera */    
+        text-align:start;
       font-size:1em !important;
     }  
 
@@ -234,9 +253,11 @@
       background-size: contain;
       background-position: center;
       width: 90vw;
-      animation:fadeIn;
-      animation-duration: 1s;
-      height: 0;
+      animation:fadeIn 1s;
+      -moz-animation: fadeIn 1s; /* Firefox */
+      -webkit-animation: fadeIn 1s; /* Safari and Chrome */
+      -o-animation: fadeIn 1s; /* Opera */    
+        height: 0;
       overflow: hidden;
       padding-top: 50%;
       position: relative;
@@ -274,8 +295,10 @@
     position: absolute; 
     bottom: 0px;
     left:5px; 
-    animation: fadeInExtraInfo;
-    animation-duration: 0.5s;
+    animation: fadeInExtraInfo 0.5s;
+    -moz-animation: fadeInExtraInfo 0.5s; /* Firefox */
+    -webkit-animation: fadeInExtraInfo 0.5s; /* Safari and Chrome */
+    -o-animation: fadeInExtraInfo 0.5s; /* Opera */    
 
   }
   @keyframes fadeInExtraInfo{
@@ -292,8 +315,10 @@
     position: absolute; 
     bottom: 0px;
     left:5px; 
-    animation: fadeOutExtraInfo;
-    animation-duration: 1s;
+    animation: fadeOutExtraInfo 1s;
+    -moz-animation: fadeOutExtraInfo 1s; /* Firefox */
+    -webkit-animation: fadeOutExtraInfo 1s; /* Safari and Chrome */
+    -o-animation: fadeOutExtraInfo 1s; /* Opera */    
     opacity:0%;
   }
   @keyframes fadeOutExtraInfo{
@@ -351,8 +376,10 @@
     opacity: 100%;
     padding:20px 0 20px 0;
     border-radius:10px;
-    animation:fadeInDialog;
-    animation-duration: 1s;
+    animation:fadeInDialog 1s;
+    -moz-animation: fadeInDialog 1s; /* Firefox */
+    -webkit-animation: fadeInDialog 1s; /* Safari and Chrome */
+    -o-animation: fadeInDialog 1s; /* Opera */    
   }
   .dialog-text{
     margin:auto;

@@ -18,7 +18,7 @@ class ThirdForm extends React.Component{
         return(
             <div className="second-form">
             <Form className="form-style">
-                <FormGroup className="form-group">
+                <FormGroup className="form-group-form">
                     <legend className='form-heading'>Do you have an Integrated Shield Plan?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="ISP" onChange={()=>{this.setState({ISP:'yes'})}} />
@@ -30,7 +30,7 @@ class ThirdForm extends React.Component{
                     </FormGroup>
                 </FormGroup>
 
-                <FormGroup className="form-group">
+                <FormGroup className="form-group-form">
                     <legend className='form-heading'>Do you have any pre-existing medical conditions?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="loan" onChange={()=>{this.setState({PEC:'yes'})}} />

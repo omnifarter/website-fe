@@ -14,7 +14,7 @@ class SecondForm extends React.Component{
         return(
             <div className="second-form">
             <Form>
-                <FormGroup className="form-group">
+                <FormGroup className="form-group-form">
                     <legend className='form-heading'>Are you looking to buy or sell a HDB?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="intent" onChange={()=>{this.setState({intent:'Buying'})}} />
@@ -25,7 +25,7 @@ class SecondForm extends React.Component{
                     I'm looking to sell
                     </FormGroup>
                 </FormGroup>
-                <FormGroup className="form-group">
+                <FormGroup className="form-group-form">
                     <legend className='form-heading'>Are you looking for a BTO or a resale?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="HDBtype" onChange={()=>{this.setState({HDBtype:'BTO'})}} />
@@ -37,7 +37,7 @@ class SecondForm extends React.Component{
                     </FormGroup>
                 </FormGroup>
 
-                <FormGroup className="form-group">
+                <FormGroup className="form-group-form">
                     <legend className='form-heading'>Are you looking to take a bank or HDB loan?</legend>
                     <FormGroup style={{marginRight:'1rem'}} check>
                     <Input type="radio" name="loan" onChange={()=>{this.setState({loan:'HDB'})}} />
